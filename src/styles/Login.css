@@ -1,0 +1,13 @@
+.login-card {
+  max-width: 700px;
+  margin: 200px auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.login-inp {
+  margin: 10px 0 !important;
+}
