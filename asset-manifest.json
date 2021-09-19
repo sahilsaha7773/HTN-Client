@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/HTN-Client/static/css/main.458b0890.chunk.css",
+    "main.js": "/HTN-Client/static/js/main.c3abfd08.chunk.js",
+    "main.js.map": "/HTN-Client/static/js/main.c3abfd08.chunk.js.map",
+    "runtime-main.js": "/HTN-Client/static/js/runtime-main.dad9155c.js",
+    "runtime-main.js.map": "/HTN-Client/static/js/runtime-main.dad9155c.js.map",
+    "static/css/2.6ed6b1dd.chunk.css": "/HTN-Client/static/css/2.6ed6b1dd.chunk.css",
+    "static/js/2.7c4f6c74.chunk.js": "/HTN-Client/static/js/2.7c4f6c74.chunk.js",
+    "static/js/2.7c4f6c74.chunk.js.map": "/HTN-Client/static/js/2.7c4f6c74.chunk.js.map",
+    "index.html": "/HTN-Client/index.html",
+    "static/css/2.6ed6b1dd.chunk.css.map": "/HTN-Client/static/css/2.6ed6b1dd.chunk.css.map",
+    "static/css/main.458b0890.chunk.css.map": "/HTN-Client/static/css/main.458b0890.chunk.css.map",
+    "static/js/2.7c4f6c74.chunk.js.LICENSE.txt": "/HTN-Client/static/js/2.7c4f6c74.chunk.js.LICENSE.txt",
+    "static/media/MedCamp.89b332b4.png": "/HTN-Client/static/media/MedCamp.89b332b4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dad9155c.js",
+    "static/css/2.6ed6b1dd.chunk.css",
+    "static/js/2.7c4f6c74.chunk.js",
+    "static/css/main.458b0890.chunk.css",
+    "static/js/main.c3abfd08.chunk.js"
+  ]
+}
