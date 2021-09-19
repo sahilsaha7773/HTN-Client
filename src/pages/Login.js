@@ -7,6 +7,7 @@ import { auth } from '../firebase';
 import { BeatLoader } from 'react-spinners';
 import api from '../config/apiConfig.json';
 import Loader from '../components/Loader';
+import MedCamp from '../images/MedCamp.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -53,6 +54,7 @@ export default function Login() {
       <Loader />
       :
       <div className="login-card">
+        <img src={MedCamp} style={{ width: "200px", margin: "auto" }} />
         <h2>Login</h2>
         <TextField
           className="login-inp"

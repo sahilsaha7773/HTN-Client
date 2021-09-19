@@ -50,7 +50,7 @@ function Onboarding() {
         lattitude: ct.latitude,
         longitude: ct.longitude,
         website: website,
-        phonenumber: phoneNumber,
+        phoneNumber: phoneNumber,
         fbLink: fbLink,
         firebase_id: currentUser.uid,
       })

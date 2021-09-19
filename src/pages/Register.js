@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom"
 import '../styles/Login.css';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { BeatLoader } from "react-spinners";
+import MedCamp from '../images/MedCamp.png';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -45,6 +46,7 @@ export default function Register() {
       </div>
       :
       <div className="login-card">
+        <img src={MedCamp} style={{ width: "200px", margin: "auto" }} />
         <h2>Sign Up</h2>
         <TextField
           className="login-inp"

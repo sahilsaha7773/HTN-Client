@@ -6,6 +6,7 @@ import NgoDashboard from '../components/NgoDashboard';
 import UserDashboard from '../components/UserDashboard';
 import api from '../config/apiConfig.json';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
+import MedCamp from '../images/MedCamp.png';
 
 function Home() {
   const [currentProfile, setCurrentProfile] = useState({});
@@ -32,6 +33,7 @@ function Home() {
       <Loader />
       :
       <div>
+
         {currentProfile.role === 'ngo' ?
           <div style={{
             margin: '40px auto',
@@ -110,6 +112,9 @@ function Home() {
               <Typography variant="h5">
                 Donated
               </Typography>
+              <Link to='/yourDonations'>
+                View all
+              </Link>
             </Paper>
           </div>
         }

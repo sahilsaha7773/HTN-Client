@@ -54,8 +54,10 @@ export default function PrivateRoute({ component: Component, ...rest }) {
                 {/* <MenuIcon /> */}
               </IconButton>
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                  HTN
+                <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} style={{
+                  fontWeight: 'bold'
+                }}>
+                  Med Camp
                 </Typography>
               </Link>
               <div style={{
@@ -63,7 +65,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
                 display: "flex",
                 alignItems: "center",
               }}>
-                <Link to="/profile" style={{ textDecoration: "none", color: "white" }}>
+                <Link to="/profile" style={{ textDecoration: "none", color: "white", marginRight: "20px" }}>
                   <Person />
                 </Link>
                 <Button

@@ -4,7 +4,7 @@ import { Delete, IndeterminateCheckBoxTwoTone } from '@material-ui/icons';
 import Loader from '../components/Loader';
 import api from '../config/apiConfig.json';
 
-function Requests() {
+function Donated() {
   const [rows, setRows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedInd, setSelectedInd] = useState(0);
@@ -12,12 +12,14 @@ function Requests() {
   const [selected, setSelected] = useState([]);
 
   useEffect(async () => {
-    var reqs = currentProfile.requestsSent;
-    console.log();
-    if (reqs.length === 0) {
+    var reqs = currentProfile.donations;
+    console.log(reqs);
+
+    if (reqs.length == 0) {
       setIsLoading(false);
       return;
     }
+    console.log(JSON.parse(reqs[selectedInd]).meds);
     setSelected(JSON.parse(reqs[selectedInd]).meds)
     console.log(JSON.parse(reqs[selectedInd]));
     for (let i = 0; i < reqs.length; i++) {
@@ -41,29 +43,32 @@ function Requests() {
     isLoading ?
       <Loader />
       :
-
       <div>
         <Typography variant="h4" style={{
           margin: "40px auto",
           textAlign: "center"
         }}>
-          Requests Sent
+          Your Donations
         </Typography>
         <div style={{
           display: "flex",
           justifyContent: "center",
           flexWrap: 'wrap'
         }}>
-          {currentProfile.requestsSent.length === 0 ?
+          {currentProfile.donations.length === 0 ?
             <Typography variant="h5">
               0 Pending Requests
-            </Typography> : <div>
+            </Typography> :
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+            }}>
               <TableContainer component={Paper} style={{ maxWidth: "500px", maxHeight: "600px", marginRight: "20px" }}>
-                <Table sx={{ minWidth: 600 }} aria-label="simple table">
+                <Table sx={{ minWidth: 400 }} aria-label="simple table">
                   <TableHead>
                     <TableRow>
                       <TableCell>NGO Name</TableCell>
-                      <TableCell align="right">Sent on</TableCell>
+                      <TableCell align="right">Donated on</TableCell>
                       {/* <TableCell align="right"></TableCell> */}
                     </TableRow>
                   </TableHead>
@@ -114,7 +119,7 @@ function Requests() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {selected.map((row, ind) => {
+                    {selected?.map((row, ind) => {
 
                       //console.log(row);
                       //row = JSON.parse(row);
@@ -135,12 +140,12 @@ function Requests() {
                   </TableBody>
                 </Table>
               </TableContainer>
-            </div>}
-
+            </div>
+          }
 
         </div>
       </div>
   )
 }
 
-export default Requests
+export default Donated

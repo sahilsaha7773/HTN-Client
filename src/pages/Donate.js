@@ -4,10 +4,10 @@ import api from '../config/apiConfig.json';
 import Loader from '../components/Loader';
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@material-ui/core';
 import latlot from '../utils/latlot';
-import GoogleMap from '../components/MapContainer';
-import MapContainer from '../components/MapContainer';
+//import GoogleMap from '../components/MapContainer';
+//import MapContainer from '../components/MapContainer';
 import { toast, ToastContainer } from 'react-toastify';
-import { Delete, Email, Phone } from '@material-ui/icons';
+import { ControlPoint, Delete, Email, Language, Phone } from '@material-ui/icons';
 
 function Donate() {
   const { id } = useParams();
@@ -26,6 +26,7 @@ function Donate() {
 
   function handleDonate(e) {
     setIsLoading(true);
+    console.log(rows);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -51,15 +52,15 @@ function Donate() {
       .then(resp => resp.json())
       .then(resp => {
         if (resp.success) {
-          const reqs = resp.data.requests;
-          var ind;
-          for (let i = 0; i < reqs.length; i++) {
-            var data = JSON.parse(reqs[i]);
-            if (data.email === currentProfile.email) {
-              ind = i;
-              break;
-            }
-          }
+          // const reqs = resp.data.requests;
+          // var ind;
+          // for (let i = 0; i < reqs.length; i++) {
+          //   var data = JSON.parse(reqs[i]);
+          //   if (data.email === currentProfile.email) {
+          //     ind = i;
+          //     break;
+          //   }
+          // }
           setNgo(resp.data);
           setIsLoading(false);
         }
@@ -74,7 +75,7 @@ function Donate() {
       });
       return;
     }
-    console.log("Asdas");
+    //console.log("Asdas");
     var temp = rows;
     temp.push();
     //console.log(temp);
@@ -85,6 +86,11 @@ function Donate() {
       batch,
       quantity
     }]);
+    setName('');
+    setBatch('')
+    setManDate('');
+    setExpDate('')
+    setQuantity('');
     console.log(rows);
   }
   //console.log(id);
@@ -93,7 +99,7 @@ function Donate() {
       <Loader />
       :
       <div style={{
-        padding: "50px 40px",
+        padding: "200px 40px",
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
@@ -133,7 +139,19 @@ function Donate() {
               {ngo.email}
             </Typography>
           </div>
-          <MapContainer />
+          {ngo.website && <div className="row" style={{
+            margin: "10px 0"
+          }}>
+
+            <Language style={{
+              margin: "0 5px"
+            }} />
+            <Typography variant="subtitle1">
+              {ngo.webiste}
+            </Typography>
+          </div>}
+
+          {/* <MapContainer lat={ngo.lattitude} lon={ngo.longitude} /> */}
         </div>
         <div>
           <TableContainer component={Paper} style={{ maxWidth: "1000px", maxHeight: "600px" }}>
@@ -179,7 +197,9 @@ function Donate() {
                       onChange={(e) => setQuantity(e.target.value)} />
                   </TableCell>
                   <TableCell align="right">
-                    <Button onClick={(e) => handleAdd(e)}>
+                    <Button onClick={(e) => handleAdd(e)} startIcon={<ControlPoint />}
+                      color="primary"
+                      variant="contained">
                       Add
                     </Button>
                   </TableCell>
@@ -209,7 +229,9 @@ function Donate() {
             </Table>
           </TableContainer>
 
-          <Button onClick={(e) => handleDonate(e)}>
+          <Button onClick={(e) => handleDonate(e)} color="primary" variant="contained" style={{
+            margin: "20px 0"
+          }}>
             Donate
           </Button>
         </div>
